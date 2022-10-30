@@ -5,5 +5,7 @@ Rhytm is a Music Discovery and Playlist-Sharing App for Music-lovers which gives
 
 You can listen to your favourite playlists made by users and like them.
 
+
+
 You can also listen to Artists and become one to publish your own songs.(This is an extended feature not available in the alpha prototype)
 
