@@ -1,0 +1,15 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div style="margin-left:15%; padding:1px 16px; height:1000px;">
+    <form method="post">
+        <fieldset>
+        <legend>Create Your Profile</legend>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="SUBMIT" >
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}

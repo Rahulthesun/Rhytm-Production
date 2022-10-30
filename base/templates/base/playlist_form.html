@@ -1,0 +1,18 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div style="margin-left:15%; padding:1px 16px; height:1000px;">
+
+<form method="post">
+  <fieldset>
+    <legend><h2>SHARE WHAT YOU LISTEN TO</h2></legend>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="SHARE" />
+  </fieldset>
+</form>
+<h3><a href="{% url 'home' %}">GO BACK</a></h3>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RHYTM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/853a55ecdc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<style>
+
+    body{
+        background-color: #ECF0F1 ;
+        margin:0;
+        font-family: 'Teko', sans-serif;
+    }
+
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding:0;
+        background-color: #212F3D ;
+        height: 100%;
+        width:15%;
+        position: fixed;
+        overflow: auto;
+    }
+    li h1{
+        color:#154360 ;
+        padding: 12px 25px ;
+        background-color: #E5E7E9  ;
+        font-family: 'Righteous', cursive;
+
+    }
+    li a{
+        display: block;
+        color:#F0F3F4;
+        padding: 8px 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    li a.active{
+        background-color: #FBFCFC ;
+        color: white;
+    }
+
+    li a:hover:not(.active){
+        background-color: #000;
+        color: white;
+    }
+
+
+
+
+
+
+</style>
+
+
+
+    <ul>
+        <li><h1>RHYTM</h1></li>
+        <li><h3><a href="{% url 'home' %}">Home</a></h3></li>
+        {% if request.user.is_authenticated  %}
+        <li><h3><a href="{% url 'posted_playlist' %}">YOUR PLAYLIST</a></h3></li>
+        <li><h3><a href="{% url 'profile' %}"><span>{{request.user}}</span></a></h3></li>
+        <li><h3><a href="{% url 'logout' %}">LOGOUT</a></h3></li>
+        {% else %}
+        <li><h3><a href="{% url 'login' %}">LOGIN</a></h3></li>
+        <li><h3><a href="{% url 'register' %}">REGISTER</a></h3></li>
+        {% endif %}
+    </ul>
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

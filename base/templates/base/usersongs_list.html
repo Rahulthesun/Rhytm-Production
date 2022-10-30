@@ -1,0 +1,26 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div style="margin-left:15%; padding:1px 16px; height:1000px;">
+    <h1>YOUR PLAYLISTS</h1>
+
+    <table>
+        {% for playlist in user_playlists %}
+            <tr>
+                <td><a href="{% url 'playlist_details' playlist.id %}">{{playlist.title}}</a></td>
+                <td><a href="{% url 'playlist_update' playlist.id %}">EDIT </a></td>
+                <td><a href="{% url 'playlist_delete' playlist.id %}">DELETE </a></td>
+            </tr>
+        {% empty %}
+        <p>YOU HAVE NOT SHARED ANY PLAYLIST</p>
+        {% endfor %}
+    </table>
+    <h4><a href="{% url 'home' %}">GO BACK</a></h4>
+    <h4><a href="{% url 'playlist_create' %}">SHARE A PLAYLIST</a></h4>
+
+</div>
+
+{% endblock %}
+
+
+

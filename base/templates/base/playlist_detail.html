@@ -1,0 +1,21 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div style="margin-left:15%; padding:1px 16px; height:1000px;">
+    <h1>{{playlists.title}}</h1>
+    <iframe style="border-radius:12px" src="{{playlists.embed_code}}" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <form method="POST" action="{% url 'push' playlists.id %}">
+            {% csrf_token %}
+            <br>
+            <button type="submit" name="playlist_id" value="{{playlists.id}}">&#10084;</button> - {{total_likes}} Likes
+        </form>
+    {% if playlists.caption %}
+    <p>{{playlists.caption}}</p>
+    {% endif %}
+    <p>Shared By  <a href="">{{playlists.user}}</a></p>
+    <h6>POSTED ON {{playlists.created}}</h6>
+    <h4><a href="{% url 'home' %}">GO BACK</a></h4>
+</div>
+
+
+{% endblock %}
