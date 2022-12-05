@@ -11,6 +11,7 @@ urlpatterns=[
 
     path('create-profile/',CreateProfile.as_view(),name='create-profile'),
     path('profile/',UserProfile.as_view(),name='profile'),
+    path('embed_help/',views.embed_code_help,name='embed_code_help'),
 
 
     path("playlist/<int:pk>/like",views.PushView,name="push"),

@@ -3,6 +3,10 @@
     {% csrf_token %}
     <p>Are You Sure You Want To Delete The {{playlists.title}} Playlist??</p>
     <p>You may lose it forever.</p>
-    <input type="submit", value="DELETE">
+    <div class="click">
+        <input type="submit", value="DELETE">
+    </div>
+
 </form>
 <h3><a href="{% url 'posted_playlist' %}">CANCEL</a></h3>
+

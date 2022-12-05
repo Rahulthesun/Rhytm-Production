@@ -12,7 +12,10 @@
         <form method="POST" action="{% url 'push' i.id %}">
             {% csrf_token %}
             <br>
-            <button type="submit" name="playlist_id" value="{{i.id}}">&#10084;</button>
+            <div class="click">
+                <button type="submit" name="playlist_id" value="{{i.id}}">&#10084;</button>
+            </div>
+
         </form>
 
         <br>
@@ -26,9 +29,15 @@
 
 <hr>
 {% if request.user.is_authenticated %}
-    <button><h3><a href="{% url 'playlist_create' %}">SHARE A PLAYLIST</a></h3></button>
+    <div class="click">
+        <button><h3><a href="{% url 'playlist_create' %}">SHARE A PLAYLIST</a></h3></button>
+    </div>
+
 {% else %}
-    <button><h3><a href="">SHARE A PLAYLIST</a></h3></button>
+    <div class="click">
+        <button><h3><a href="{% url 'login' %}">SHARE A PLAYLIST</a></h3></button>
+    </div>
+
 {% endif %}
 
 {% endblock %}

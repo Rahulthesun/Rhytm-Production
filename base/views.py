@@ -50,15 +50,17 @@ class UserProfile(ListView):
 
 class CreateProfile(CreateView):
     model=Profile
-    fields='__all__'
+    fields=['user','name','bio','email','social']
     success_url= reverse_lazy('home')
+
+    #def form_invalid(self, form):
+        #form.instance.user = self.request.user
+       # return super(CreateProfile,self).form_valid(form)
 
 class Songslist(ListView):
     model= Playlist
     context_object_name= "playlists"
     template_name = "base/Song_list.html"
-
-
 
 
 class UserSongslist(ListView):
@@ -79,12 +81,16 @@ class PlaylistDetails(DetailView):
 
 class CreatePlaylist(CreateView):
     model=Playlist
-    fields = "__all__"
+    fields = ['user','title','caption','embed_code']
     success_url = reverse_lazy("posted_playlist")
+
+   #def form_invalid(self, form):
+       # form.instance.user = self.request.user
+       # return super(CreatePlaylist, self).form_valid(form)
 
 class UpdatePlaylist(UpdateView):
     model = Playlist
-    fields = "__all__"
+    fields = ['title','caption','embed_code']
     success_url = reverse_lazy("posted_playlist")
 
 class DeletePlaylist(DeleteView):
@@ -117,3 +123,6 @@ def PushView(request,pk):
     post=get_object_or_404(Playlist ,id=request.POST.get('playlist_id'))
     post.push.add(request.user)
     return HttpResponseRedirect(reverse('home'))
+
+def embed_code_help(request):
+    return render(request,'base/embed_help.html')

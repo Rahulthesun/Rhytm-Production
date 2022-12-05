@@ -7,7 +7,10 @@
     <form method="POST" action="{% url 'push' playlists.id %}">
             {% csrf_token %}
             <br>
-            <button type="submit" name="playlist_id" value="{{playlists.id}}">&#10084;</button> - {{total_likes}} Likes
+            <div class="click">
+                <button type="submit" name="playlist_id" value="{{playlists.id}}">&#10084;</button> - {{total_likes}} Likes
+            </div>
+
         </form>
     {% if playlists.caption %}
     <p>{{playlists.caption}}</p>
